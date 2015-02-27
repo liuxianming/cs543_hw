@@ -1,0 +1,20 @@
+\begin{thebibliography}{1}
+
+\bibitem{ren2008multi}
+Xiaofeng Ren,
+\newblock ``Multi-scale improves boundary detection in natural images,''
+\newblock in {\em Computer Vision--ECCV 2008}, pp. 533--545. Springer, 2008.
+
+\bibitem{lindeberg1998feature}
+Tony Lindeberg,
+\newblock ``Feature detection with automatic scale selection,''
+\newblock {\em International journal of computer vision}, vol. 30, no. 2, pp.
+  79--116, 1998.
+
+\bibitem{liu2012scale}
+Xian-Ming Liu, Changhu Wang, Hongxun Yao, and Lei Zhang,
+\newblock ``The scale of edges,''
+\newblock in {\em Computer Vision and Pattern Recognition (CVPR), 2012 IEEE
+  Conference on}. IEEE, 2012, pp. 462--469.
+
+\end{thebibliography}

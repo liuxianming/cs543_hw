@@ -1,0 +1,273 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"rotate",
+				"rotate_image"
+			],
+			[
+				"directo",
+				"directory_names"
+			],
+			[
+				"rota",
+				"rotated_ims"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/Users/liuxianming/nsdb_vgg_train_test.prototxt",
+			"settings":
+			{
+				"buffer_size": 6167,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 181.0,
+		"selected_items":
+		[
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"package",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 579.0
+	},
+	"console":
+	{
+		"height": 127.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '2deb499853c4371624f5a07e27c334aa' + 'bf8c4e67d14fb0525ba4f89698a6d7e1'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/liuxianming/Dropbox/Courses/ECE549/HM/HM1",
+		"/Users/liuxianming/Dropbox/Courses/ECE549/HM/HM1/Answer"
+	],
+	"file_history":
+	[
+		"/Users/liuxianming/Dropbox/Courses/ECE549/HM/HM1/Answer/hm1.tex",
+		"/Users/liuxianming/Dropbox/Courses/ECE549/HM/HM1/Answer/[no file]",
+		"/Users/liuxianming/Dropbox/Research/Submissions/[2015]ICIP/icip_2015.sublime-project",
+		"/Users/liuxianming/Dropbox/Courses/ECE549/HM/HM1/hm1.sublime-project",
+		"/Users/liuxianming/Dropbox/Applications/BI_Fellowship_2015/proposal_crowdsourcing.tex",
+		"/Users/liuxianming/Dropbox/Applications/BI_Fellowship_2015/BI_Fellowship_Application.sublime-project",
+		"/Users/liuxianming/Downloads/proposal_template.tex",
+		"/Users/liuxianming/Dropbox/Research/Submissions/[2015]ICML_fnn/example_paper.bbl",
+		"/Users/liuxianming/Dropbox/Research/Submissions/[2015]ICML_fnn/icml2015.bst",
+		"/Users/liuxianming/Dropbox/Research/Submissions/[2015]ICML_fnn/icml.sublime-project",
+		"/Users/liuxianming/Dropbox/Research/Submissions/[2015]ICIP/main.tex",
+		"/Users/liuxianming/Dropbox/Research/Submissions/[2015]ICIP/dataset.tex",
+		"/Users/liuxianming/Dropbox/Research/Submissions/[2015]ICIP/sparse.tex",
+		"/Users/liuxianming/Dropbox/Research/Submissions/[2015]ICIP/intro.tex",
+		"/Users/liuxianming/Dropbox/Research/Submissions/[2015]ICIP/abstract.tex",
+		"/Users/liuxianming/Dropbox/Research/Submissions/[2015]ICIP/related.tex",
+		"/Users/liuxianming/Dropbox/Research/Submissions/[2015]ICIP/stm_exp.tex",
+		"/Users/liuxianming/Dropbox/Research/Submissions/[2015]ICIP/main.bbl",
+		"/Users/liuxianming/Dropbox/Research/Proposal/[2015]NSF_Crowdsourcing_Astronomy/crowdsourcing_proposal.sublime-project",
+		"/Users/liuxianming/Dropbox/Research/Submissions/[2015]ICIP/refs.bib",
+		"/Users/liuxianming/Dropbox/Research/Proposal/[2015]NSF_Crowdsourcing_Astronomy/Latex/proposalnsf.cls",
+		"/Users/liuxianming/Dropbox/Research/Proposal/[2015]NSF_Crowdsourcing_Astronomy/Latex/proposal_crowdsourcing.tex",
+		"/Users/liuxianming/Dropbox/Research/Proposal/[2015]NSF_Crowdsourcing_Astronomy/Latex/proposed_research.tex",
+		"/Users/liuxianming/Dropbox/Research/Proposal/[2015]NSF_Crowdsourcing_Astronomy/Latex/research_background.tex",
+		"/Users/liuxianming/Dropbox/Research/Proposal/[2015]NSF_Crowdsourcing_Astronomy/Latex/relevant_exp.tex",
+		"/Users/liuxianming/Dropbox/Research/Proposal/[2015]NSF_Crowdsourcing_Astronomy/Latex/ref.bib",
+		"/Users/liuxianming/Dropbox/Research/Proposal/[2015]NSF_Crowdsourcing_Astronomy/Latex/man_plan.tex",
+		"/Users/liuxianming/Dropbox/Research/Proposal/[2015]NSF_Crowdsourcing_Astronomy/Latex/broader_impact.tex",
+		"/Users/liuxianming/Dropbox/Research/Proposal/[2015]NSF_Crowdsourcing_Astronomy/Latex/project_overview.tex",
+		"/Users/liuxianming/Dropbox/Research/Proposal/[2015]NSF_Crowdsourcing_Astronomy/Latex/project_overview.log",
+		"/Users/liuxianming/Library/Application Support/Sublime Text 3/Packages/DashDoc/DashDoc.sublime-settings",
+		"/Users/liuxianming/Dropbox/Research/Proposal/[2015]NSF_Crowdsourcing_Astronomy/Latex/proposal_crowdsourcing.fdb_latexmk",
+		"/Users/liuxianming/Dropbox/Research/Proposal/[2015]NSF_Crowdsourcing_Astronomy/Latex/proposal_crowdsourcing.aux",
+		"/Users/liuxianming/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/liuxianming/Dropbox/Research/Proposal/[2015]NSF_Crowdsourcing_Astronomy/Latex/proposal_crowdsourcing.pdf",
+		"/Users/liuxianming/Dropbox/Research/Proposal/[2015]NSF_Crowdsourcing_Astronomy/crowdsourcing_proposal_latex.sublime-project",
+		"/Users/liuxianming/Dropbox/Research/Proposal/[2015]NSF_Crowdsourcing_Astronomy/Latex/crowdsourcing_proposal.sublime-project",
+		"/Users/liuxianming/Library/Application Support/Sublime Text 3/Packages/Default/Preferences.sublime-settings"
+	],
+	"find":
+	{
+		"height": 37.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"CONVOLUTION",
+			"layers",
+			"cccp",
+			"group",
+			"layers",
+			"value",
+			"group",
+			"Convolution",
+			"date",
+			"text{ }",
+			"Robert"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"\"Convolution\"",
+			"layer"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/Users/liuxianming/nsdb_vgg_train_test.prototxt",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6167,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6166,
+								6166
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 6899.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 102.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "hm1.sublime-project",
+	"replace":
+	{
+		"height": 66.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 213.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

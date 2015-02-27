@@ -1,0 +1,17 @@
+{
+	"folders":
+	[
+		{
+			"follow_symlinks": true,
+			"path": "."
+		}
+	],
+	"settings":
+    {
+        "font_face": "Consolas",
+        "font_size": 14.0,
+        "spell_check": true,
+        "translate_tabs_to_spaces": true,
+        "tab_size": 4
+    }
+}

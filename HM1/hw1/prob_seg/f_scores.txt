@@ -1,0 +1,3 @@
+Method gradient:	overall F-score = 0.537		average F-score = 0.564
+Method oriented:	overall F-score = 0.536		average F-score = 0.587
+Method multi_scale_oriented:	overall F-score = 0.552		average F-score = 0.595
