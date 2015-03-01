@@ -1,6 +1,6 @@
 im = imread('./images/hotel.seq0.png');
 
-[keyxs, keyys] = getKeypoints(im, 0.02);
+[keyxs, keyys] = getKeypoints(im, 0.005);
 pts_num = length(keyxs);
 
 figure();

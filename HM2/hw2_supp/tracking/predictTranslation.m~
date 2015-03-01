@@ -1,0 +1,18 @@
+function [newX newY] = predictTranslation(startX, startY, Ix, Iy, im0, im1)
+%PREDICTTRANSLATION 
+% For a single X,Y location, use the gradients Ix, Iy, 
+% and images im0, im1 to compute the new location. 
+% Here it may be necessary to interpolate Ix,Iy,im0,im1 
+% if the corresponding locations are not integer.
+% WindowSize = 15
+
+% Initialize points
+delta_p = [0,0];
+P = [startX, startY];
+
+%
+newX = P(1);
+newY = P(2);
+
+end
+

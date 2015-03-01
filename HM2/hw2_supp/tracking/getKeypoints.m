@@ -29,10 +29,6 @@ dy = dx';
 Ix = conv2(im, dx, 'same');    % Image derivatives
 Iy = conv2(im, dy, 'same');  
 
-figure(); 
-subplot(1,2,1); imagesc(Ix); colormap gray;
-subplot(1,2,2); imagesc(Iy); colormap gray;
-
 Ix2 = Ix.^2;
 Iy2 = Iy.^2;
 Ixy = Ix.*Iy;
@@ -50,24 +46,19 @@ Ix2 = imfilter(Ix2, gfilter, 'same');
 Iy2 = imfilter(Iy2, gfilter, 'same');
 Ixy = imfilter(Ixy, gfilter, 'same');
 
-figure();
-subplot(1,3,1); imagesc(Ix2); colormap gray;
-subplot(1,3,2); imagesc(Iy2); colormap gray;
-subplot(1,3,3); imagesc(Ixy); colormap gray;
-
-R = (Ix2.*Iy2 - Ixy.^2) - k*(Ix2 + Iy2).^2;
-% R = (Ix2.*Iy2 - Ixy.^2)./(Ix2 + Iy2 + eps);
-figure(); imagesc(R); colormap gray; colorbar;
+% R = (Ix2.*Iy2 - Ixy.^2) - k*(Ix2 + Iy2).^2;
+R = (Ix2.*Iy2 - Ixy.^2)./(Ix2 + Iy2 + eps);
 
 % Perform non-maxima suppression over a 5*5 window
-radius = 2; 
+radius = 5; 
 wsize = 2*radius+1;                     
 mx = ordfilt2(R,wsize^2,ones(wsize));
 
 % Dealing with boundary conditions
 boarderMask = zeros(size(R));
 boarderMask(wsize - 1:end - wsize + 1, wsize - 1:end - wsize + 1) = 1;
-rim = (R==mx)&(R>tau)&boarderMask;                  % Find maxima.
+
+rim = (R==mx)&(R>tau)&boarderMask; 
 	
 [keyYs, keyXs] = find(rim);
 
