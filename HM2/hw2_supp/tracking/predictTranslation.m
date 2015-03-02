@@ -1,27 +1,47 @@
-function [newX newY] = predictTranslation(startX, startY, Ix, Iy, im0, im1)
-%PREDICTTRANSLATION 
-% For a single X,Y location, use the gradients Ix, Iy, 
-% and images im0, im1 to compute the new location. 
-% Here it may be necessary to interpolate Ix,Iy,im0,im1 
-% if the corresponding locations are not integer.
-% WindowSize = 15
+function P = predictTranslation( startX, startY, Ix, Iy, im0, im1, sigma)
+%PREDICTTRANSLATIONSINGLEPT Calculating translation for a single corner pt
+% startX, startY - the starting point
+% im0, im1 - image frames at t and t+1
+% Return value:
+%   P - the new position in im1
 
-% Initialize points
-P = [0,0];
-newP = [startX, startY];
-threshold = 0.01;
-
-% The difference between I([x,y] + [u,v], t+1) and I(x, y, t)
-delta_p = 100;
-
-while norm(delta_p) > threshold
-    % Start tracking
-    
+% Calculating gradients
+if nargin < 7
+    sigma = 7;
 end
 
-% Assign final values
-newX = newP(1);
-newY = newP(2);
+if (startX-sigma)<0 || (startX+sigma)>size(im0,2) || (startY-sigma)<0 || (startY+sigma)>size(im0,1)
+    P = [0,0]';
+    return
+end
+
+% Intialization
+P = [startX, startY]'; % new position, [x,y] + [u,v]
+threshold = 0.15; % threshold for convergence
+
+W0 = im0(startX-sigma:startX+sigma, startY-sigma:startY+sigma);
+W1 = im1(startX-sigma:startX+sigma, startY-sigma:startY+sigma);
+It = W1 - W0;
+
+while true
+    if P(1)-sigma<=0 || P(1)+sigma>size(im0,2) || P(2)-sigma<=0 || P(2)+sigma>size(im0,1)
+        % New point is out of range
+        disp('Out of Image Range');
+        break;
+    end
+    delta = solveLS(Ix, Iy, It);
+    disp(delta);
+    P = P + delta;
+    if norm(delta) < threshold
+        disp('Converged!');
+        break;
+    else
+        %Update It
+        [x,y] = meshgrid(P(1)-sigma:P(1)+sigma, P(2)-sigma:P(2)+sigma);
+        W1 = interp2(im1, x, y, '*linear');
+        It = W1 - W0;
+    end
+end
 
 end
 
