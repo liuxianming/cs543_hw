@@ -60,7 +60,7 @@ boarderMask(wsize - 1:end - wsize + 1, wsize - 1:end - wsize + 1) = 1;
 
 rim = (R==mx)&(R>tau)&boarderMask; 
 	
-[keyXs, keyYs] = find(rim);
+[keyYs, keyXs] = find(rim);
 
 end
 

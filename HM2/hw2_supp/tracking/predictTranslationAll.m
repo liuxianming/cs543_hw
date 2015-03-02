@@ -12,7 +12,7 @@ if nargin<5
 end
 
 % Calculate gradients
-[Ix, Iy] = imgradientxy(im0, 'prewitt');
+[Ix, Iy] = gradient(im0);
 
 n_points = length(startXs);
 newXs = startXs;
@@ -22,13 +22,21 @@ for i = 1:n_points
     % Process each point
     startX = startXs(i);
     startY = startYs(i);
-    %log:
-    fprintf(1,'Tracking Point [%d, %d]', startX, startY);
-    Ix_patch = Ix(startX-sigma:startX+sigma, startY-sigma:startY+sigma);
-    Iy_patch = Iy(startX-sigma:startX+sigma, startY-sigma:startY+sigma);
-    P = predictTranslation(startX, startY, Ix_patch, Iy_patch, im0, im1, sigma);
+    if (startX-sigma)<=0 || (startX+sigma)>size(im0,2) || (startY-sigma)<=0 || (startY+sigma)>size(im0,1)
+        P = [0,0]';
+        % log
+        fprintf(1,'Point [%.2f, %.2f] Lost - Out of image range', startX, startY);
+    else
+        % log:
+        fprintf(1,'Tracking Point [%.2f, %.2f]', startX, startY);
+        % In case of input points are not integer, use interp2
+        [x, y] = meshgrid(startX-sigma:startX+sigma, startY-sigma:startY+sigma);
+        Ix_patch = interp2(Ix, x, y, '*linear');
+        Iy_patch = interp2(Iy, x, y, '*linear');
+        P = predictTranslation(startX, startY, Ix_patch, Iy_patch, im0, im1, sigma);
+        fprintf(1,'-> [%.2f, %.2f]\n', P(1), P(2));
+    end
     newXs(i) = P(1); newYs(i) = P(2);
-    fprintf(1,'-> [%.2f, %.2f]\n', P(1), P(2));
 end
 
 end
