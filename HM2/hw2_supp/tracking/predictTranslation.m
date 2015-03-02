@@ -23,6 +23,8 @@ W0 = im0(startX-sigma:startX+sigma, startY-sigma:startY+sigma);
 W1 = im1(startX-sigma:startX+sigma, startY-sigma:startY+sigma);
 It = W1 - W0;
 
+iteration = 0;
+
 while true
     if P(1)-sigma<=0 || P(1)+sigma>size(im0,2) || P(2)-sigma<=0 || P(2)+sigma>size(im0,1)
         % New point is out of range
@@ -30,16 +32,15 @@ while true
         break;
     end
     delta = solveLS(Ix, Iy, It);
-    disp(delta);
     P = P + delta;
-    if norm(delta) < threshold
-        disp('Converged!');
+    if norm(delta) < threshold || iteration > 5
         break;
     else
         %Update It
         [x,y] = meshgrid(P(1)-sigma:P(1)+sigma, P(2)-sigma:P(2)+sigma);
         W1 = interp2(im1, x, y, '*linear');
         It = W1 - W0;
+        iteration = iteration + 1;
     end
 end
 

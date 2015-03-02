@@ -1,26 +1,35 @@
-function [newXs newYs] = predictTranslationAll(startXs, startYs, im0, im1)
+function [newXs, newYs] = predictTranslationAll(startXs, startYs, im0, im1, sigma)
 %PREDICTTRANSLATIONALL ComputenewX,Y locations for all starting locations.
-%   Detailed explanation goes here
+%   This function will calculate spatial gradient Ix, Iy
+%   And call predictTranslation() function to complete the whole process
+%   Input:
+%   - startXs, startYs: the sampled points to track
+%   - im0, im1: image frame at t and t+1
+%   - sigma: the radius of window to track
 
-P = [0,0];
-newP = [startX, startY];
-threshold = 0.01;
-
-% The difference between I([x,y] + [u,v], t+1) and I(x, y, t)
-delta_p = 100;
-
-while norm(delta_p) > threshold
-    % Start tracking
-    Ix = wrapping(Ix, P);
-    % Calculate the gradient
-    It = Iy - Ix;
-    
+if nargin<5
+    sigma = 7;
 end
 
-% Assign final values
-newX = newP(1);
-newY = newP(2);
+% Calculate gradients
+[Ix, Iy] = imgradientxy(im0, 'prewitt');
 
+n_points = length(startXs);
+newXs = startXs;
+newYs = startYs;
+
+for i = 1:n_points
+    % Process each point
+    startX = startXs(i);
+    startY = startYs(i);
+    %log:
+    fprintf(1,'Tracking Point [%d, %d]', startX, startY);
+    Ix_patch = Ix(startX-sigma:startX+sigma, startY-sigma:startY+sigma);
+    Iy_patch = Iy(startX-sigma:startX+sigma, startY-sigma:startY+sigma);
+    P = predictTranslation(startX, startY, Ix_patch, Iy_patch, im0, im1, sigma);
+    newXs(i) = P(1); newYs(i) = P(2);
+    fprintf(1,'-> [%.2f, %.2f]\n', P(1), P(2));
+end
 
 end
 
