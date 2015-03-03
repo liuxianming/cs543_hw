@@ -1,0 +1,9 @@
+Aligning Object2.png to Object1.png...
+Time cost = 0.2512 second
+Evaluation of Alignment: 6.76
+Aligning Object2.png to Object2t.png...
+Time cost = 0.0205 second
+Evaluation of Alignment: 0.61
+Aligning Object2.png to Object3.png...
+Time cost = 0.2286 second
+Evaluation of Alignment: 4.72

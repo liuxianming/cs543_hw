@@ -3,6 +3,7 @@ function T = align_shape( im1, im2 )
 %transform
 % Using affaine transform to estimate T, and ICP algorithm
 
+aligned_img = [];
 % Start timer
 tic;
 
@@ -48,16 +49,16 @@ for iter = 1:iteration
     % 1. Apply transformation
     shape12 = (T * shape1')';
     % reconstruct translated image
-    t_im1 = zeros(size(im2));
+    aligned_img = zeros(size(im1));
     for i = 1:size(shape12, 1)
-        tx = floor(shape12(i, 1)); ty = floor(shape12(i,2));
+        tx = round(shape12(i, 1)); ty = round(shape12(i,2));
         if tx>0 && tx<=size(im2,1) && ty>0 && ty<=size(im2,2)
-            t_im1(tx,ty) = 1;
+            aligned_img(tx,ty) = 1;
         end
     end
-    ER(iter, 1) = evalAlignment(t_im1, im2);
+    ER(iter, 1) = evalAlignment(aligned_img, im2);
     % pause()
-    if ER(iter,1) < 5
+    if ER(iter,1) < 2
         break;
     end
     
@@ -83,5 +84,8 @@ end
 t = toc;
 fprintf(1,'Time cost = %.4f second\n',t);
 ER = ER(1:iter,:);
+fprintf(1,'Evaluation of Alignment: %.2f\n', ER(iter,1));
+% show alignment
+figure(); imshow(displayAlignment(im1, im2, aligned_img));
 end
 
