@@ -16,21 +16,26 @@ ER = zeros(iteration,2);
 [row2, col2] = find(im2);
 mean1 = [mean(row1), mean(col1)];
 mean2 = [mean(row2), mean(col2)];
-% Initialize translation 
-x_translation = mean2(1) - mean1(1);
-y_translation = mean2(2) - mean1(2);
 
 % Estimate rotation using pca - that is eigenvalues of covariance matrix
-dir1=pca([row1+x_translation,col1+y_translation]);
+dir1=pca([row1,col1]);
 dir2=pca([row2,col2]);
 rot=dir2/dir1;
 
 % Estimate the scaling: 
 % calculating average distance to center and compute the ratio
-%scale1=sqrt(sum((row1-mean1(1)).^2+(col1-mean1(2)).^2)/length(row1));
-%scale2=sqrt(sum((row2-mean2(1)).^2+(col2-mean2(2)).^2)/length(row2));
-%scale=scale2/scale1;
-scale = 1;
+scale1=sqrt(sum((row1-mean1(1)).^2+(col1-mean1(2)).^2)/length(row1));
+scale2=sqrt(sum((row2-mean2(1)).^2+(col2-mean2(2)).^2)/length(row2));
+scale=scale2/scale1;
+
+% Estimate the translation:
+% Key is: synthses a rotated and scaled shape, and calcualte the
+% translation between synthsesed shape and the target
+shape0 = (scale * rot * [row1, col1]');
+mean0 = mean(shape0, 2);
+% Initialize translation 
+x_translation = mean2(1) - mean0(1);
+y_translation = mean2(2) - mean0(2);
 
 % Iteratively perform ICP
 shape2 = [row2 col2];
@@ -51,7 +56,11 @@ for iter = 1:iteration
         end
     end
     ER(iter, 1) = evalAlignment(t_im1, im2);
-    figure(1); imshow(t_im1); pause()
+    % pause()
+    if ER(iter,1) < 5
+        break;
+    end
+    
     % 2. Search for cloest point (using euclidean distance)
     %using built-in function knnsearch
     [nnidx, mindist] = knnsearch(shape2, shape12, 'k', 1, 'NSMethod', 'kdtree');    
@@ -71,12 +80,8 @@ for iter = 1:iteration
     T = reshape(T, [3,2])';
 end
 
-figure(); imshow(im2); hold on; 
-plot(shape12(2,:), shape12(1,:), 'r+');
 t = toc;
-disp(t);
-% show errors
-figure();
-plot(1:iter, ER(:,1)); grid on; title('Error of matching in the loop');
+fprintf(1,'Time cost = %.4f second\n',t);
+ER = ER(1:iter,:);
 end
 
