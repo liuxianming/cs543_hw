@@ -26,7 +26,15 @@ end
 
 %% solve for vanishing point 
 % Insert code here to compute vp (3x1 vector in homogeneous coordinates)
-
+n = size(lines,2);
+vpCandidate = zeros(3,0);
+for i = 1:n-1
+    for j = (i+1):n
+        vpCandidate(:,end+1) = cross(lines(:,i), lines(:,j));
+    end
+end
+vp = getVP(centers, vpCandidate);
+vp = vp ./ vp(3);
 
 %% display 
 hold on
