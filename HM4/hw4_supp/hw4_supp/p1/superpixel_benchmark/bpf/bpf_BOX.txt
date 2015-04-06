@@ -1,0 +1,13 @@
+mode                val
+BSDS500_root        /home/nepe/etit_arbeit/data_sets/bsds500/BSR/BSDS500/data
+nImages             10
+algResSavePath      result/box
+algorithmCommand    [S time] = segment_box(I, pN);
+parameterset parametersetName box_25   pN 25 
+parameterset parametersetName box_50   pN 50 
+parameterset parametersetName box_100  pN 100 
+parameterset parametersetName box_250  pN 250 
+parameterset parametersetName box_500  pN 500 
+parameterset parametersetName box_1000 pN 1000
+parameterset parametersetName box_2500 pN 2500 
+
