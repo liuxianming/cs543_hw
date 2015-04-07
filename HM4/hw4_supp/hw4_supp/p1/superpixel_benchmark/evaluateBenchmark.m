@@ -67,13 +67,12 @@ function evaluateBenchmark(filename, varargin)
         figure(nuFig); legend( nuHandles, ip.Results.names);
         figure(tFig); legend( tHandles, ip.Results.names);
         
-    else
-        % just plot
-        evalBPF_plot(filename,'figure', nrFig, 'metric', 'boundary_recall','nameFlag', 0);
-        evalBPF_plot(filename,'figure', nuFig, 'metric', 'undersegmentation', 'nameFlag', 0);
-        evalBPF_plot(filename,'figure', tFig, 'metric', 'runtime', 'nameFlag', 0);
-        
     end
+    % just plot
+    evalBPF_plot(filename,'figure', nrFig, 'metric', 'boundary_recall','nameFlag', 0);
+    evalBPF_plot(filename,'figure', nuFig, 'metric', 'undersegmentation', 'nameFlag', 0);
+    evalBPF_plot(filename,'figure', tFig, 'metric', 'runtime', 'nameFlag', 0);
+    
 end
 
 

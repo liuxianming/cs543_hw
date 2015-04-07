@@ -22,6 +22,6 @@
 % benchmark
 function main_benchmark(bpf_filename)
 
-    runAlgorithm(bpf_filename)
-    runBenchmark(bpf_filename)
+    %runAlgorithm(bpf_filename)
+    %runBenchmark(bpf_filename)
     evaluateBenchmark(bpf_filename)
